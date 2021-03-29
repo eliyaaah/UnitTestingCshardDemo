@@ -92,17 +92,5 @@ namespace TestNinja.UnitTests.Mocking
             _housekeeperHelperRepositoryMock.Verify(hhr => hhr.EmailFile(It.IsAny<string>(), It.IsAny<string>(),
                 _statementFilename, It.IsAny<string>()), Times.Never);
         }
-
-        [Test]
-        public void SendStatementEmails_EmailSendingFails_DisplayAMessagebox()
-        {
-            _housekeeperHelperRepositoryMock.Setup(hhr => hhr.EmailFile(It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>()))
-                .Throws<Exception>();
-
-            HousekeeperHelper.SendStatementEmails(_statementDate,
-                _unitOfWorkMock.Object, _housekeeperHelperRepositoryMock.Object);
-
-            _mes
-        }
     }
 }
